@@ -10,33 +10,36 @@
     "returnTime":"36 månader",
     "numOrders":995,
     "anualInterest":4,
-    "imgs":""    
+    "img":"loan1.png",
+    "img2":"https://picsum.photos/seed/1/360/280"    
 },
   {
     "id": "2",
     "title": "Reglerbar dränering, Vadstena",
     "longText": "Spannmålsproducent på Vadstenaslätten söker investera i reglerbar dränering på 50 hektar",
     "amount":"1 500 000",
-    "signed":45,
-    "riskRate":"B",
+    "signed":75,
+    "riskRate":"C",
     "endTime":"1 Dagar 12 Tim 12 min",
     "returnTime":"36 månader",
     "numOrders":600,
     "anualInterest":4,
-    "imgs":""    
+    "img":"loan2.png",
+    "img2":"https://picsum.photos/seed/2//360/280"    
 },
   {
     "id": "3",
     "title": "Omställningslån - Jordhälsa, Bjalbo",
     "longText": "Växtodlare söken rörelsekapital för omställning till odlingsmetoder som gynnar jordhälsan",
     "amount":"800 000",
-    "signed":75,
-    "riskRate":"C",
+    "signed":45,
+    "riskRate":"Bs",
     "endTime":"1 Dagar 12 Tim 21 min",
     "returnTime":"36 månader",
     "numOrders":1250,
     "anualInterest":6,
-    "imgs":""    
+    "img":"loan3.png",
+    "img2":"https://picsum.photos/seed/3/360/280"    
 },
   {
     "id": "4",
@@ -49,7 +52,8 @@
     "returnTime":"36 månader",
     "numOrders":1250,
     "anualInterest":3,
-    "imgs":""    
+    "img":"loan4.png",
+    "img2":"https://picsum.photos/seed/4/360/280"    
 },
   {
     "id": "5",
@@ -62,7 +66,8 @@
     "returnTime":"36 månader",
     "numOrders":1250,
     "anualInterest":4,
-    "imgs":""    
+    "img":"loan5.png",
+    "img2":"https://picsum.photos/seed/5/360/280"    
 },
   {
     "id": "6",
@@ -75,7 +80,8 @@
     "returnTime":"36 månader",
     "numOrders":1250,
     "anualInterest":6,
-    "imgs":""    
+    "img":"loan6.png",
+    "img2":"https://picsum.photos/seed/6/360/280"    
 }
 ,
   {
@@ -89,7 +95,8 @@
     "returnTime":"36 månader",
     "numOrders":1250,
     "anualInterest":6,
-    "imgs":""    
+    "img":"loan2.png",
+    "img2":"https://picsum.photos/seed/7/360/280"    
 },
   {
     "id": "8",
@@ -102,7 +109,8 @@
     "returnTime":"36 månader",
     "numOrders":1250,
     "anualInterest":3,
-    "imgs":""    
+    "img":"loan3.png",
+    "img2":"https://picsum.photos/seed/8/360/280"    
 },
   {
     "id": "9",
@@ -115,7 +123,8 @@
     "returnTime":"36 månader",
     "numOrders":600,
     "anualInterest":4,
-    "imgs":""    
+    "img":"loan4.png",
+    "img2":"https://picsum.photos/seed/9/360/280"    
 },{
     "id": "10",
     "title": "Uppfödning av bockkillingar på naturbete, Huddinge",
@@ -127,7 +136,8 @@
     "returnTime":"36 månader",
     "numOrders":995,
     "anualInterest":4,
-    "imgs":""    
+    "img":"loan1.png",
+    "img2":"https://picsum.photos/seed/10/360/280"    
 }, {
     "id": "11",
     "title": "Lokalproducerad glass, Mjölby",
@@ -139,7 +149,8 @@
     "returnTime":"36 månader",
     "numOrders":1250,
     "anualInterest":4,
-    "imgs":""    
+    "img":"loan5.png",
+    "img2":"https://picsum.photos/seed/11/360/280"    
 },
   {
     "id": "12",
@@ -152,6 +163,7 @@
     "returnTime":"36 månader",
     "numOrders":1250,
     "anualInterest":3,
-    "imgs":""    
+    "img":"loan6.png",
+    "img2":"https://picsum.photos/seed/12/360/280"    
 }
 ]

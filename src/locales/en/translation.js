@@ -49,6 +49,13 @@ const translationEN = {
       }
 
     },
+    currentLoans:{
+      currentLoans:"Current loans",
+      title:"Invest in an agricultural business near you - Through crowdfunding",
+      subtitle:"Loan financing that makes Swedish food production grow - from the grass roots",    
+      pagginationNext:"Next",
+      pagginationPrevious:"Previous",
+    },
     brand: "Brand",
     about: "About",
     contact: "Contact",
