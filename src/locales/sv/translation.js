@@ -48,6 +48,14 @@ const translationSV = {
         card3url:""
       }
     },
+    currentLoans:{
+      currentLoans:"Aktuella lån",
+      title:"Investera i ett lantbruksföretag nära dig - Genom gräsrotsfinansiering",
+      subtitle:"Finansiering av lån som får svensk livsmedelsproduktion att växa – från gräsrötterna",    
+      pagginationNext:"Nästa",
+      pagginationPrevious:"Tidigare",
+      
+    },
     brand: "Märke",
     about: "Om oss",
     contact: "Kontakt",

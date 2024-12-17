@@ -12,7 +12,7 @@ export const Footer = () => {
             {/* Footer Section 1: Logo and Description */}
             <div className="col-md-4 mb-3">
                 <img src={logo} alt="Logo" style={{ maxWidth: '150px' }} />
-                <p className="mt-3">{t('footer.description')}</p>
+                <p className="mt-3 text-justify">{t('footer.description')}</p>
             </div>
 
             {/* Footer Section 2: Links */}
