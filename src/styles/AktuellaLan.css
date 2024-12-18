@@ -1,23 +1,101 @@
-/* Styles for AktuellaLan component */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 1rem 0.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.card-text {
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    background-color: #28a745;
+    transition: width 0.6s ease;
+}
+
+.progress {
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+}
 .risk-grades {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 1rem;
     width: 100%;
 }
 
 .risk-grade {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    margin: 0 2px;
-    border-radius: 2px;
+    flex: 1;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0 4px;
+    border-radius: 6px;
+    text-transform: uppercase;
 }
 
 .risk-grade.bg-success {
-    background-color: green;
+    background-color:#28a745;
 }
 
 .risk-grade.bg-secondary {
-    background-color: gray;
+    background-color:#6c757d;
+}
+
+.progress {
+    margin-top: auto;
+}
+
+.image-container {
+  position: relative;
+  
+}
+
+.note {
+  position:absolute;  
+  bottom: 5px;
+  left: 5px;
+  width: 215px;
+  height: 34px;
+  background-color: rgba(0,0, 0, 0.6); /* Semi-transparent background */
+  color:white;
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 8px ;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  z-index: 10;
+  max-width: calc(100% - 10px);
+}
+
+.large-bold-text {
+    font-size: 1.5rem;
+    font-weight: bold;
 }

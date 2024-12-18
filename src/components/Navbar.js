@@ -1,35 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import i18n from '../i18n'; 
 import logo from '../assets/icons/icon.svg'
-
+import '../styles/Navbar.css'
 export const Navbar = () => {
     const { t, i18n } = useTranslation();
-    const [textDark, setTextDark] = useState(false);
 
-  // Handle scroll event to change text color
-  useEffect(() => {
-    const handleScroll = () => {
+    // scroll event listener
+    window.addEventListener("scroll", function () {
+      const navbar = document.getElementById("navbar");
+
       if (window.scrollY > 50) {
-        setTextDark(true); // Change text color to dark when scrolled
+        // Add the dark background class
+        navbar.classList.add("navbar-dark-scrolled");
       } else {
-        setTextDark(false); // Revert back to white text
+        // Remove the dark background class
+        navbar.classList.remove("navbar-dark-scrolled");
       }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup scroll event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
+    });
 
     return (
-    <nav
-      className={`navbar navbar-expand-lg ${textDark ? 'navbar-light bg-transparent text-dark' : 'navbar-light bg-transparent text-white'} fixed-top shadow-sm`}
-    >
+      <nav id="navbar" className="navbar navbar-expand-lg navbar-dark fixed-top">
         <div className="container">
           <div className=''>
             <img src={logo} style={{maxWidth:'75%',height:'auto'}} alt="Responsive image"/>
@@ -56,7 +46,7 @@ export const Navbar = () => {
           <button className="btn btn-outline-light text-uppercase"  style={{ fontSize: '0.9rem' }}>{t('navbar.login')}</button>
         </div>
 
-          <div className="ml-auto">
+          <div className="ml-auto" >
             <button className="btn text-light text-uppercase" onClick={() => i18n.changeLanguage('en')}>{t('navbar.localisation1')}</button>
             <button className="btn text-light text-uppercase" onClick={() => i18n.changeLanguage('sv')}>{t('navbar.localisation2')}</button>
           </div>
