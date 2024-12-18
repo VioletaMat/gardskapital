@@ -1,0 +1,10 @@
+/* Default transparent navbar */
+#navbar {
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Dark background when scrolled */
+.navbar-dark-scrolled {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+}

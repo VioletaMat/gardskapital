@@ -3,17 +3,17 @@ import { useTranslation } from 'react-i18next';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import aktellalanheder from '../assets/images/aktellalanheder.png';
-import "../styles/AktuellaLan.css";  // Import the CSS file for styling
+import "../styles/AktuellaLan.css";  
 
 const AktuellaLan = () => {
   const [loans, setLoans] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); 
   const itemsPerPage = 6;
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   // Function to resolve image paths dynamically
   const resolveImagePath = (imgName) => {
-    return require(`../assets/images/${imgName}`); // Adjust path as needed
+    return require(`../assets/images/${imgName}`);
   };
 
   useEffect(() => {
@@ -30,6 +30,8 @@ const AktuellaLan = () => {
         const updatedData = data.map((loan) => ({
           ...loan,
           imgSrc: resolveImagePath(loan.img),
+          timeLeft: calculateTimeLeft(loan.endTime), // Calculate time left
+
         }));
         setLoans(updatedData);
       })
@@ -49,6 +51,26 @@ const AktuellaLan = () => {
   // Calculate total number of pages
   const totalPages = Math.ceil(loans.length / itemsPerPage);
 
+  const calculateTimeLeft = (endTime) => {
+    const currentTime = new Date(); // Get current date and time
+    const endDate = new Date(endTime); // Parse end time from JSON data
+
+    // Calculate the difference in milliseconds
+    const timeDifference = endDate - currentTime;
+
+    // If the end time is in the past, return 0s for all
+    if (timeDifference <= 0) {
+      return { days: 0, hours: 0, minutes: 0 };
+    }
+
+    // Calculate days, hours, and minutes from milliseconds
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    return { days, hours, minutes };
+  };
+
   return (
     <div style={{ fontFamily: 'Roboto, sans-serif' }}>
       <Navbar className="navbar navbar-expand-lg navbar-light bg-transparent fixed-top shadow-sm" />
@@ -61,11 +83,10 @@ const AktuellaLan = () => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             minHeight: '70vh',
-            paddingTop: '20vh', // Adjusts the vertical space for text
-            position: 'relative', // Keeps text overlay within the section
+            paddingTop: '20vh', 
+            position: 'relative', 
           }}
         >
-          {/* Overlay to improve text readability */}
           <div
             className="position-absolute top-0 start-0 w-100 h-100"
             style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
@@ -84,7 +105,7 @@ const AktuellaLan = () => {
         <section>
           <div className="container mt-5">
             {/* Page Header */}
-            <div className="text-center mb-4">
+            <div className="text-start mb-4">
               <h1 className="fw-bold">{t('currentLoans.currentLoans')}</h1>
             </div>
 
@@ -93,32 +114,90 @@ const AktuellaLan = () => {
               {currentLoans.map((loan) => (
                 <div key={loan.id} className="col-md-4">
                   <div className="card h-100 shadow-sm">
-                    {/* Image */}
+                    <div className="image-container">
                     <img
                       src={loan.imgSrc}
                       alt={loan.title}
                       className="card-img-top"
                       style={{ height: "200px", objectFit: "cover" }}
                     />
+                      
+                    {loan.note && (
+                      <div className="note position-absolute p-2 text-white">
+                        {loan.note}
+                      </div>
+                    )}
+                   </div>
 
-                    {/* Card Body */}
                     <div className="card-body d-flex flex-column">
-                      <h5 className="card-title text-start">{loan.title}</h5>
-                      <p className="text-start clamp-3-lines">{loan.longText}</p>
+                      <h5 className="card-title text-start" style={{ minHeight: '70px',fontSize: '1.25rem' }}>{loan.title}</h5>
+                      <p className="text-start clamp-3-lines" style={{ minHeight: '50px',fontSize: '0.75rem' }}>{loan.longText}</p>
 
-                      <strong className="card-title text-start">Riskklass: </strong>
-                      {/* Display Risk Grades as cubes */}
-                      <div className="risk-grades">
+                      <strong className="card-title text-start">Riskbetyg: </strong>
+
+                      <div className="risk-grades mb-3">
                         {["A", "B", "C", "D", "E", "F"].map((grade) => (
                           <span
                             key={grade}
                             className={`risk-grade ${loan.riskRate === grade ? "bg-success" : "bg-secondary"}`}
                             title={grade}
-                          ></span>
+                          >
+                              {grade}
+                          </span>
                         ))}
                       </div>
+                      <div className="d-flex justify-content-between">
+                        <div className="text-start">Årsränta</div>
+                        <div className="text-end">Lånebelopp</div>
+                      </div>
+                      <div className="d-flex justify-content-between">
+                        <div className="text-start  large-bold-text">
+                           {(loan.anualInterest / 100).toLocaleString('de-DE', { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 })}
+                        </div>
+                        <div className="text-end  large-bold-text">{loan.amount}</div>
+                      </div>
+                      <div className="d-flex justify-content-end">
+                        <div className="text-end">SEK</div>
+                      </div>
+
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div className="d-flex align-content-center">
+                        <p className="mb-0">Tid kvar</p>
+                      </div>
+                      <div className="d-flex w-50">
+                        <div className="flex-fill text-center large-bold-text">
+                          {loan.timeLeft.days} 
+                        </div>
+                        <div className="flex-fill text-center large-bold-text">
+                          {loan.timeLeft.hours} 
+                        </div>
+                        <div className="flex-fill text-end large-bold-text">
+                          {loan.timeLeft.minutes}  
+                        </div>
+                      </div>
+                    </div>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div className="text-start">
+                        <strong></strong>
+                      </div>
+                      <div className="d-flex w-50">
+                        <div className="flex-fill text-start">
+                          DAGAR  
+                        </div>
+                        <div className="flex-fill text-start">
+                          TIM 
+                        </div>
+                        <div className="flex-fill text-end">
+                          MIN  
+                        </div>
+                      </div>
+                    </div>
+
 
                       {/* Progress Bar */}
+                      <div className="text-start">
+                            Tecknat
+                      </div>
                       <div className="progress mt-auto">
                         <div
                           className="progress-bar"
