@@ -3,11 +3,19 @@ import { useTranslation } from 'react-i18next';
 import { Navbar } from '../components/Navbar';
 import homeheder from '../assets/images/homeheder.png';
 import homecenter from '../assets/images/homecenter.png';
+import sectionbottom from '../assets/images/sectionbottom.jpg';
 import { Footer } from '../components/Footer';
-// import './Hem1.css';
+import { useNavigate } from 'react-router-dom';
+
+
 
 function Hem1() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+   const navigate = useNavigate();
+
+  const goToAktuellaLan = () => {
+    navigate('/aktuellalan');
+  };
 
   return (
     <div style={{ fontFamily: 'Roboto, sans-serif' }}>
@@ -93,9 +101,9 @@ function Hem1() {
                   </li>
                 </ul>
                 <a
-                  href="/"
                   className="btn btn-dark d-flex align-items-center justify-content-center text-white mt-auto"
                   style={{ backgroundColor: '#001212', padding: '0.5rem 1.5rem' }}
+                  onClick={goToAktuellaLan}
                 >
                   {t('home.cardLoanButton')}
                   <i className="fa-solid fa-arrow-right ms-2"></i>
@@ -109,77 +117,76 @@ function Hem1() {
         <section className="py-5">
           <div className="container">
             <h2 className="text-start mb-4">{t('home.customerTestimonials.titlePlural')}</h2>
-            <div className="row justify-content-center">
+            <div className="row">
               {/* Testimonial Card 1 */}
-              <div className="col-md-4 mb-4 d-flex">
-                <div className="card shadow-sm h-100">
+              <div className="col-md-4 mb-4">
+                <div className="card shadow-sm h-100 d-flex flex-column">
                   <img
                     src="path-to-image1.jpg"
                     className="card-img-top"
                     alt="Client 1"
                     style={{ height: '200px', objectFit: 'cover' }}
                   />
-                  <div>
+                  <div className="card-body d-flex flex-column justify-content-between">
                     <h5
-                       className="card-title border border-2 border-dark text-start p-1"
-                       style={{ maxWidth: 'fit-content', borderRadius: '5px'}}
+                      className="card-title border border-2 border-dark text-start p-1 mb-2"
+                      style={{ maxWidth: 'fit-content', borderRadius: '5px' }}
                     >
                       {t('home.customerTestimonials.titleSingular')}
                     </h5>
+                    <h5 className="card-title text-start mb-2">{t('home.customerTestimonials.card1text')}</h5>
+                    <p className="card-text text-start mt-auto">{t('home.customerTestimonials.card1date')}</p>
                   </div>
-                    <h5 className="card-title text-start">{t('home.customerTestimonials.card1text')}</h5>
-                    <p className="card-title text-start mt-auto">{t('home.customerTestimonials.card1date')}</p>
                 </div>
               </div>
 
               {/* Testimonial Card 2 */}
-              <div className="col-md-4 mb-4 d-flex">
-                <div className="card shadow-sm h-100">
+              <div className="col-md-4 mb-4">
+                <div className="card shadow-sm h-100 d-flex flex-column">
                   <img
                     src="path-to-image2.jpg"
                     className="card-img-top"
                     alt="Client 2"
                     style={{ height: '200px', objectFit: 'cover' }}
                   />
-                  <div>
+                  <div className="card-body d-flex flex-column justify-content-between">
                     <h5
-                       className="card-title border border-2 border-dark text-start p-1"
-                       style={{ maxWidth: 'fit-content', borderRadius: '5px' }}
+                      className="card-title border border-2 border-dark text-start p-1 mb-2"
+                      style={{ maxWidth: 'fit-content', borderRadius: '5px' }}
                     >
                       {t('home.customerTestimonials.titleSingular')}
                     </h5>
+                    <h5 className="card-title text-start mb-2">{t('home.customerTestimonials.card2text')}</h5>
+                    <p className="card-text text-start mt-auto">{t('home.customerTestimonials.card2date')}</p>
                   </div>
-                    <h5 className="card-title text-start">{t('home.customerTestimonials.card2text')}</h5>
-                    <p className="card-title text-start mt-auto">{t('home.customerTestimonials.card2date')}</p>
                 </div>
               </div>
 
               {/* Testimonial Card 3 */}
-              <div className="col-md-4 mb-4 d-flex">
-                <div className="card shadow-sm h-100">
+              <div className="col-md-4 mb-4">
+                <div className="card shadow-sm h-100 d-flex flex-column">
                   <img
                     src="path-to-image3.jpg"
                     className="card-img-top"
                     alt="Client 3"
                     style={{ height: '200px', objectFit: 'cover' }}
                   />
-                  <div>
+                  <div className="card-body d-flex flex-column justify-content-between">
                     <h5
-                       className="card-title border border-2 border-dark text-start p-1"
-                       style={{ maxWidth: 'fit-content', borderRadius: '5px' }}
+                      className="card-title border border-2 border-dark text-start p-1 mb-2"
+                      style={{ maxWidth: 'fit-content', borderRadius: '5px' }}
                     >
                       {t('home.customerTestimonials.titleSingular')}
                     </h5>
+                    <h5 className="card-title text-start mb-2">{t('home.customerTestimonials.card3text')}</h5>
+                    <p className="card-text text-start mt-auto">{t('home.customerTestimonials.card3date')}</p>
                   </div>
-                  
-                    <h5 className="card-title text-start">{t('home.customerTestimonials.card3text')}</h5>
-                    <p className="card-title text-start mt-auto">{t('home.customerTestimonials.card3date')}</p>
-                  
                 </div>
               </div>
             </div>
           </div>
         </section>
+
         {/* Center Section with Image */}
         <section
           className="text-white text-center"
@@ -213,79 +220,120 @@ function Hem1() {
         </div>
         </section>
 
-         {/* News Section */}
+         {/* Testimonials Section */}
         <section className="py-5">
           <div className="container">
             <h2 className="text-start mb-4">{t('home.news.titlePlural')}</h2>
-            <div className="row justify-content-center d-flex">
-              {/* News Card 1 */}
-              <div className="col-md-4 mb-4 d-flex">
-                <div className="card shadow-sm h-100">
+            <div className="row">
+              {/* Testimonial Card 1 */}
+              <div className="col-md-4 mb-4">
+                <div className="card shadow-sm h-100 d-flex flex-column">
                   <img
                     src="path-to-image1.jpg"
                     className="card-img-top"
                     alt="Client 1"
                     style={{ height: '200px', objectFit: 'cover' }}
                   />
-                  <div>
+                  <div className="card-body d-flex flex-column justify-content-between">
                     <h5
-                       className="card-title border border-2 border-dark text-start p-1"
-                       style={{ maxWidth: 'fit-content', borderRadius: '5px' }}
+                      className="card-title border border-2 border-dark text-start p-1 mb-2"
+                      style={{ maxWidth: 'fit-content', borderRadius: '5px' }}
                     >
                       {t('home.news.titleSingular')}
                     </h5>
+                    <h5 className="card-title text-start mb-2">{t('home.news.card1text')}</h5>
+                    <p className="card-text text-start mt-auto">{t('home.news.card1date')}</p>
                   </div>
-                    <h5 className="card-title text-start">{t('home.news.card1text')}</h5>
-                    <p className="card-title text-start mt-auto">{t('home.news.card1date')}</p>
                 </div>
               </div>
 
-              {/* News Card 2 */}
-              <div className="col-md-4 mb-4 d-flex">
-                <div className="card shadow-sm h-100">
+              {/* Testimonial Card 2 */}
+              <div className="col-md-4 mb-4">
+                <div className="card shadow-sm h-100 d-flex flex-column">
                   <img
                     src="path-to-image2.jpg"
                     className="card-img-top"
                     alt="Client 2"
                     style={{ height: '200px', objectFit: 'cover' }}
                   />
-                   <div>
+                  <div className="card-body d-flex flex-column justify-content-between">
                     <h5
-                       className="card-title border border-2 border-dark text-start p-1"
-                       style={{ maxWidth: 'fit-content', borderRadius: '5px' }}
+                      className="card-title border border-2 border-dark text-start p-1 mb-2"
+                      style={{ maxWidth: 'fit-content', borderRadius: '5px' }}
                     >
                       {t('home.news.titleSingular')}
                     </h5>
+                    <h5 className="card-title text-start mb-2">{t('home.news.card2text')}</h5>
+                    <p className="card-text text-start mt-auto">{t('home.news.card2date')}</p>
                   </div>
-                    <h5 className="card-title text-start">{t('home.news.card2text')}</h5>
-                    <p className="card-title text-start mt-auto">{t('home.news.card2date')}</p>
                 </div>
               </div>
 
-              {/* News Card 3 */}
-              <div className="col-md-4 mb-4 d-flex">
-                <div className="card shadow-sm h-100">
+              {/* Testimonial Card 3 */}
+              <div className="col-md-4 mb-4">
+                <div className="card shadow-sm h-100 d-flex flex-column">
                   <img
                     src="path-to-image3.jpg"
                     className="card-img-top"
                     alt="Client 3"
                     style={{ height: '200px', objectFit: 'cover' }}
                   />
-                   <div>
+                  <div className="card-body d-flex flex-column justify-content-between">
                     <h5
-                       className="card-title border border-2 border-dark text-start p-1"
-                       style={{ maxWidth: 'fit-content', borderRadius: '5px' }}
+                      className="card-title border border-2 border-dark text-start p-1 mb-2"
+                      style={{ maxWidth: 'fit-content', borderRadius: '5px' }}
                     >
                       {t('home.news.titleSingular')}
                     </h5>
+                    <h5 className="card-title text-start mb-2">{t('home.news.card3text')}</h5>
+                    <p className="card-text text-start mt-auto">{t('home.news.card3date')}</p>
                   </div>
-                    <h5 className="card-title text-start">{t('home.news.card3text')}</h5>
-                    <p className="card-title text-start mt-auto">{t('home.news.card3date')}</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+        <section className="py-4">
+          <div className="container">
+            <div className="row align-items-center">
+              {/* Left Section with Image */}
+              <div className="col-md-6 text-start">
+                <img 
+                  src={sectionbottom} 
+                  alt="Description of Image" 
+                  style={{ maxWidth: '100%', height: 'auto',borderRadius: '15px'  }} 
+                />
+              </div>
+
+              {/* Right Section with Content */}
+              <div className="col-md-6 d-flex flex-column justify-content-between align-items">
+                {/* Title */}
+                <h3 className="mb-3 text-start">{t('home.bottomSection.title')}</h3>
+                <span></span>
+
+
+                <p className="mb-4 text-start" style={{fontSize: '1.2vw'}}>
+                 {t('home.bottomSection.longTextTop')}
+                </p>
+                <p className="mb-4 text-start" style={{fontSize: '1.2vw'}}>
+                 {t('home.bottomSection.longTextCenter')}
+                </p>
+                <p className="mb-4 text-start" style={{fontSize: '1.2vw'}}>
+                 {t('home.bottomSection.longTextBottom')}
+                </p>
+
+                  {/* Button */}
+                <div className="d-flex justify-content-start">
+                  <button className="btn text-light mx-2 text-uppercase" style={{fontSize: '0.9rem', backgroundColor: '#2C6755' }}>
+                    <i className="fa-solid fa-arrow-right me-2"></i>{t('home.bottomSection.button')}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </main>
       <Footer/>
     </div>

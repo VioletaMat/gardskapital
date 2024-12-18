@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation,i18n } from 'react-i18next';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import aktellalanheder from '../assets/images/aktellalanheder.png';
@@ -9,7 +9,7 @@ const AktuellaLan = () => {
   const [loans, setLoans] = useState([]);
   const [currentPage, setCurrentPage] = useState(1); 
   const itemsPerPage = 6;
-  const { t } = useTranslation();
+  const { t,i18n } = useTranslation();
 
   // Function to resolve image paths dynamically
   const resolveImagePath = (imgName) => {

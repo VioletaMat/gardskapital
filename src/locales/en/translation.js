@@ -46,8 +46,14 @@ const translationEN = {
         card3text:"Deepening Soil health - Jon Orvendal",
         card3date:"15 april 2022",
         card3url:""
+      },
+      bottomSection:{
+        title:"Our loan terms",
+        longTextTop:"Agriculture is a capital-intensive industry and it is not always the own capital and bank accounts that cover the entire investment need.",
+        longTextCenter:"To make it easier for agricultural companies to smoothly finance their important investments, we at Gårdskapital have therefore developed a supplement to bank loans.",
+        longTextBottom:"The amortization is tailored to suit your company's cash flow. The interest rate is flexible and set individually after a risk assessment by our experienced credit committee.",
+        button:"Read more about our loan conditions"
       }
-
     },
     currentLoans:{
       currentLoans:"Current loans",

@@ -46,6 +46,13 @@ const translationSV = {
         card3text:"Fördjupning Jordhälsa - Jon Orvendal",
         card3date:"18 april 2022",
         card3url:""
+      },
+      bottomSection:{
+        title:"Våra lånevillkor",
+        longTextTop:"Lantbruket är en kapitalistensiv bransch och det är inte alltid det egna kapitalet och banklan täcker hela investeringsbehovet.",
+        longTextenter:"För att underlätta for lantbruksforetag att smidigt finansiera sina viktiga investeringar har vi på Gårdskapital därfor utvecklat ett komplement till banklån. ",
+        longTextBottom:"Amorteringen skäddarsys for att passa just ditt foretags kassafloden. Räntan är roglig och satts individuellt efter en riskbedomning av vår erfarna kreditkomitté.",
+        button:"Läs mer om våra lånevillkor"
       }
     },
     currentLoans:{

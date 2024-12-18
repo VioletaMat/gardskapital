@@ -1,14 +1,18 @@
 // import logo from './logo.svg';
 import './App.css';
-import AktuellaLan from './pages/AktuellaLan';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Hem1 from './pages/Hem1';
+import AktuellaLan from './pages/AktuellaLan';
+import './i18n'; 
 
 function App() {
   return (
-    <div className="App" style={{ fontFamily: 'Roboto, sans-serif' }}  >
-      {/* <Hem1/> */}
-      <AktuellaLan/>
-    </div>
+  <Router>
+      <Routes>
+        <Route path="/" element={<Hem1 />} />
+        <Route path="/aktuellalan" element={<AktuellaLan />} />
+      </Routes>
+    </Router>
   );
 }
 
