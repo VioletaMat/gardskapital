@@ -1,0 +1,36 @@
+footer {
+    background-color: #2C6755;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+footer .list-unstyled {
+    padding-left: 0;
+}
+
+footer .list-unstyled li {
+    margin-bottom: 8px;
+}
+
+footer .text-white {
+    color: #fff;
+}
+
+.text-color-desc {
+    color:#CBD9E1
+}
+.text-color{
+color:#D8F9EA
+}
