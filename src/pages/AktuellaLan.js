@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation,i18n } from 'react-i18next';
+import { useNavigate } from "react-router-dom"; 
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import aktellalanheder from '../assets/images/aktellalanheder.png';
@@ -10,6 +11,7 @@ const AktuellaLan = () => {
   const [currentPage, setCurrentPage] = useState(1); 
   const itemsPerPage = 6;
   const { t,i18n } = useTranslation();
+  const navigate = useNavigate(); 
 
   // Function to resolve image paths dynamically
   const resolveImagePath = (imgName) => {
@@ -17,7 +19,6 @@ const AktuellaLan = () => {
   };
 
   useEffect(() => {
-    // Simulating fetching data from a JSON file
     fetch("/mockdata/loans.json")
       .then((response) => {
         if (!response.ok) {
@@ -31,8 +32,10 @@ const AktuellaLan = () => {
           ...loan,
           imgSrc: resolveImagePath(loan.img),
           timeLeft: calculateTimeLeft(loan.endTime), // Calculate time left
+        }))
+        // Filter out loans that have expired
+        .filter((loan) => loan.timeLeft && loan.timeLeft.days > 0 || loan.timeLeft.hours > 0 || loan.timeLeft.minutes > 0);
 
-        }));
         setLoans(updatedData);
       })
       .catch((error) => console.error("Error loading data:", error));          
@@ -52,13 +55,11 @@ const AktuellaLan = () => {
   const totalPages = Math.ceil(loans.length / itemsPerPage);
 
   const calculateTimeLeft = (endTime) => {
-    const currentTime = new Date(); // Get current date and time
-    const endDate = new Date(endTime); // Parse end time from JSON data
+    const currentTime = new Date(); 
+    const endDate = new Date(endTime);
 
-    // Calculate the difference in milliseconds
     const timeDifference = endDate - currentTime;
 
-    // If the end time is in the past, return 0s for all
     if (timeDifference <= 0) {
       return { days: 0, hours: 0, minutes: 0 };
     }
@@ -70,6 +71,10 @@ const AktuellaLan = () => {
 
     return { days, hours, minutes };
   };
+
+
+const handleNavigate = (loan) => {
+ '/lan', { state: { loan: loan, loans: loans }}};
 
   return (
     <div style={{ fontFamily: 'Roboto, sans-serif' }}>
@@ -104,7 +109,6 @@ const AktuellaLan = () => {
         </section>
         <section>
           <div className="container mt-5">
-            {/* Page Header */}
             <div className="text-start mb-4">
               <h1 className="fw-bold">{t('currentLoans.currentLoans')}</h1>
             </div>
@@ -113,7 +117,9 @@ const AktuellaLan = () => {
             <div className="row gy-4">
               {currentLoans.map((loan) => (
                 <div key={loan.id} className="col-md-4">
-                  <div className="card h-100 shadow-sm">
+                  <div className="card h-100 shadow-sm"
+                     onClick={() => console.log("Card clicked!", loan) || handleNavigate(loan)} // Navigate on card click
+                    style={{ cursor: "pointer" }}>
                     <div className="image-container">
                     <img
                       src={loan.imgSrc}
@@ -130,7 +136,12 @@ const AktuellaLan = () => {
                    </div>
 
                     <div className="card-body d-flex flex-column">
-                      <h5 className="card-title text-start" style={{ minHeight: '70px',fontSize: '1.25rem' }}>{loan.title}</h5>
+                      <h5 className="card-title text-start" 
+                       onClick={(e) => {
+                        e.stopPropagation();
+                        console.log("Title clicked, preventing card click!");
+                      }}
+                      style={{ minHeight: '70px',fontSize: '1.25rem' }}>{loan.title}</h5>
                       <p className="text-start clamp-3-lines" style={{ minHeight: '50px',fontSize: '0.75rem' }}>{loan.longText}</p>
 
                       <strong className="card-title text-start">Riskbetyg: </strong>
