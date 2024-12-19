@@ -8,3 +8,17 @@
 .navbar-dark-scrolled {
     background-color: rgba(0, 0, 0, 0.85) !important;
 }
+
+.navbar-black-text .nav-link,
+.navbar-black-text .navbar-nav .nav-item .nav-link,
+.navbar-black-text .btn
+.navbar-black-text .logo-black-text {
+    color: black !important;
+}
+
+.logo-black-text {
+    fill: black !important;
+}
+.font-weight-bold {
+    font-weight: bold !important;
+}
