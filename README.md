@@ -16,7 +16,7 @@ you will get npm error while resolving typescript version with i18next library i
 please run 
 npm install --legacy-peer-deps --force
 
-This will bypass the dependency resolution conflict. Till i resolve this conflict.
+This will bypass the dependency resolution conflict. Till i resolve this conflict. 	:bug:
 
 then run the development server:
 
