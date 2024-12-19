@@ -1,16 +1,23 @@
-# Getting Started with Create React App
+# Getting Started
 
 This React project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Project was edited and adapted as a task for a job offer at ZWEBB Fintech
 
-## Getting started
-
-First, navigate folder
+First,
+clone project somewhere and create your local copy
+then navigate folder
 
 run npm install
 or
 yarn install
+
+you will get npm error while resolving typescript versin with i18next library i use for localisation
+please run 
+npm install --legacy-peer-deps --force
+
+This will bypass the dependency resolution conflict. Till i resolve this conflict.
+
 then run the development server:
 
 ### `npm start`
