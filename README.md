@@ -28,6 +28,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ###To pass on Current loans page click on button 
 I want a loan <> Jag vill låna :muscle:
 
+Feel free to checkout localisation buttons in navigation bar
+I am using i18next library for translations 
+
 ## Technologies Used
 
 - React
