@@ -35,6 +35,7 @@
     border-radius: 4px;
     overflow: hidden;
 }
+
 .risk-grades {
     display: flex;
     justify-content: center;
@@ -53,18 +54,19 @@
     align-items: center;
     color: white;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin: 0 4px;
     border-radius: 6px;
     text-transform: uppercase;
 }
 
 .risk-grade.bg-success {
-    background-color:#28a745;
+    background-color: #28a745;
 }
 
 .risk-grade.bg-secondary {
-    background-color:#6c757d;
+    background-color: #BABABA;
+    color: #BABABA;
 }
 
 .progress {
@@ -72,31 +74,6 @@
 }
 
 .image-container {
-  position: relative;
-  
-}
+    position: relative;
 
-.note {
-  position:absolute;  
-  bottom: 5px;
-  left: 5px;
-  width: 215px;
-  height: 34px;
-  background-color: rgba(0,0, 0, 0.6); /* Semi-transparent background */
-  color:white;
-  padding: 8px;
-  font-size: 15px;
-  border-radius: 8px ;
-  border: 1px solid white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  z-index: 10;
-  max-width: calc(100% - 10px);
-}
-
-.large-bold-text {
-    font-size: 1.5rem;
-    font-weight: bold;
 }
