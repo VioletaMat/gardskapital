@@ -1,45 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useContext } from "react";
 import { useTranslation,i18n } from 'react-i18next';
 import { useNavigate } from "react-router-dom"; 
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import aktellalanheder from '../assets/images/aktellalanheder.png';
 import "../styles/AktuellaLan.css";  
+import { LoanContext } from "../App";
 
 const AktuellaLan = () => {
-  const [loans, setLoans] = useState([]);
+   const { loans } = useContext(LoanContext); // Access loan data from context
+ 
   const [currentPage, setCurrentPage] = useState(1); 
   const itemsPerPage = 6;
   const { t,i18n } = useTranslation();
-  const navigate = useNavigate(); 
-
-  // Function to resolve image paths dynamically
-  const resolveImagePath = (imgName) => {
-    return require(`../assets/images/${imgName}`);
-  };
-
-  useEffect(() => {
-    fetch("/mockdata/loans.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // Add image paths dynamically
-        const updatedData = data.map((loan) => ({
-          ...loan,
-          imgSrc: resolveImagePath(loan.img),
-          timeLeft: calculateTimeLeft(loan.endTime), // Calculate time left
-        }))
-        // Filter out loans that have expired
-        .filter((loan) => loan.timeLeft && loan.timeLeft.days > 0 || loan.timeLeft.hours > 0 || loan.timeLeft.minutes > 0);
-
-        setLoans(updatedData);
-      })
-      .catch((error) => console.error("Error loading data:", error));          
-  }, []);
+  const navigate = useNavigate();   
 
   // Function to handle page change
   const handlePageChange = (pageNumber) => {
@@ -54,27 +28,10 @@ const AktuellaLan = () => {
   // Calculate total number of pages
   const totalPages = Math.ceil(loans.length / itemsPerPage);
 
-  const calculateTimeLeft = (endTime) => {
-    const currentTime = new Date(); 
-    const endDate = new Date(endTime);
 
-    const timeDifference = endDate - currentTime;
-
-    if (timeDifference <= 0) {
-      return { days: 0, hours: 0, minutes: 0 };
-    }
-
-    // Calculate days, hours, and minutes from milliseconds
-    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-
-    return { days, hours, minutes };
+  const handleNavigate = (loanId) => {
+    navigate(`/lan/${loanId}`);
   };
-
-
-const handleNavigate = (loan) => {
- '/lan', { state: { loan: loan, loans: loans }}};
 
   return (
     <div style={{ fontFamily: 'Roboto, sans-serif' }}>
@@ -118,7 +75,7 @@ const handleNavigate = (loan) => {
               {currentLoans.map((loan) => (
                 <div key={loan.id} className="col-md-4">
                   <div className="card h-100 shadow-sm"
-                     onClick={() => console.log("Card clicked!", loan) || handleNavigate(loan)} // Navigate on card click
+                     onClick={() => console.log("Card clicked!", loan) || handleNavigate(loan.id)} // Navigate on card click
                     style={{ cursor: "pointer" }}>
                     <div className="image-container">
                     <img
@@ -192,13 +149,13 @@ const handleNavigate = (loan) => {
                         <strong></strong>
                       </div>
                       <div className="d-flex w-50">
-                        <div className="flex-fill text-start">
+                        <div className="flex-fill text-start" style={{ fontSize: '0.9rem' }}>
                           DAGAR  
                         </div>
-                        <div className="flex-fill text-start">
+                        <div className="flex-fill text-start"  style={{ fontSize: '0.9rem' }}>
                           TIM 
                         </div>
-                        <div className="flex-fill text-end">
+                        <div className="flex-fill text-end"  style={{ fontSize: '0.9rem' }}>
                           MIN  
                         </div>
                       </div>
