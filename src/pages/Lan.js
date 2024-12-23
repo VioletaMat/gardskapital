@@ -25,7 +25,8 @@ const Lan = () => {
         <Navbar isBlackText={true}  className="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top" 
           style={{ color: 'black' }} 
           />
-        <main  style={{ height: "100vh", display: "flex", flexDirection: "column" ,paddingBottom:'20px'}}>
+        <main style={{  display: "flex", flexDirection: "column" ,paddingBottom:'20px',paddingTop:'60px'}}>
+          {/* height:"100vh," */}
             <div
             className="container text-start d-flex align-items-center justify-content-center"
             style={{ height: "50%", borderBottom: "1px solid #ddd" ,display:"flex",justifyContent:"space-around",alignItems:"center"}}
@@ -42,7 +43,72 @@ const Lan = () => {
                 backgroundColor: "#f5f5f5",
               }}
             >
-              Left Half
+               <div>
+                <h4 style={{fontSize:'44px',fontWeight:'400',lineHeight:'55px',textAlign:'left'}}>{loan.title}</h4>
+                <div className="image-container">
+                    <button className="register text-light text-uppercase" style={{fontSize: '0.9rem', backgroundColor: '#2C6755',boxShadow:'none' }}>
+                      <i className="fa-solid fa-arrow-right me-2"></i>{t('navbar.register')}
+                    </button>
+                    <img
+                      src={loan.imgSrc}
+                      alt={loan.title}
+                      // className="card-img-top"
+                      style={{  width: "756px",
+                      height: "586px",
+                      top: "280px",
+                      left: "228px",
+                      borderRadius:"20px",}}
+                    />
+                   </div>
+                {/* Row with three containers */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              {/* Left Container */}
+              <div
+                style={{
+                  flex: 1,
+                  textAlign: "left",
+                  borderRadius: "10px", // Optional rounding
+                }}
+              >
+                <p>{loan.anualInterest + "% årsränta | Riskbetyg "+ loan.riskRate}</p>
+              </div>
+
+              {/* Center Container */}
+              <div
+                style={{
+                  flex: 1,
+                  textAlign: "center",
+                  padding: "10px",
+                  backgroundColor: "#e9ecef", // Optional background
+                  margin: "0 10px", // Adjust spacing between containers
+                  borderRadius: "10px", // Optional rounding
+                }}
+              >
+                <h5>Center Container</h5>
+                <p>Add relevant information here</p>
+              </div>
+
+              {/* Right Container */}
+              <div
+                style={{
+                  flex: 1,
+                  textAlign: "right",
+                  padding: "10px",
+                  backgroundColor: "#f8f9fa", // Optional background
+                  borderRadius: "10px", // Optional rounding
+                }}
+              >
+                <h5>Right Container</h5>
+                <p>Add relevant information here</p>
+              </div>
+            </div>
+              </div>
             </div>
 
             {/* Second Div */}
@@ -99,7 +165,7 @@ const Lan = () => {
             </div>
           </div>
             {/* Bottom Container: Current Loans */}
-        <div className="container" style={{ height: "50%", overflowY: "auto"}} >
+        <div className="container" style={{ height: "50%",minHeight:"777px", overflowY: "auto"}} >
             <h1 className="display-4 fw-bold" style={{ fontSize: '2rem' }}>
               {t('currentLoans.currentLoans')}
             </h1>

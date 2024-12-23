@@ -1,7 +1,12 @@
 .card {
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .card:hover {
@@ -15,10 +20,6 @@
     flex-direction: column;
 }
 
-.card-title {
-    margin-bottom: 0.5rem;
-    color: #333;
-}
 
 .card-text {
     color: #555;
@@ -75,5 +76,19 @@
 
 .image-container {
     position: relative;
+}
 
+.register {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 147px;
+    height: 36px;
+    background-color: #2C6755;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    border-top-left-radius: 20px;
+    border-color: #2C6755;
+    box-shadow: none !important;
 }
