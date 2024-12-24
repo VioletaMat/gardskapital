@@ -94,8 +94,10 @@ const translationEN = {
         item2:"Questions and answers",
         item3:"Contact"
       }
+    },
+    lan:{
+      allLoans:"View all loans to finance"
     }
-    // Add more translations as needed
   };
   
   export default translationEN;

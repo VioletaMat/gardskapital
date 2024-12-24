@@ -55,7 +55,7 @@
     align-items: center;
     color: white;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin: 0 4px;
     border-radius: 6px;
     text-transform: uppercase;
@@ -66,8 +66,7 @@
 }
 
 .risk-grade.bg-secondary {
-    background-color: #BABABA;
-    color: #BABABA;
+    background-color: #6c757d;
 }
 
 .progress {
@@ -91,4 +90,64 @@
     border-top-left-radius: 20px;
     border-color: #2C6755;
     box-shadow: none !important;
+}
+
+ .oval-dots{
+    display: flex;
+    justify-content: right;
+    align-items: end;
+    gap: 5px;
+        /* Adjust gap for better spacing */
+    margin-bottom: 1rem;   
+}
+
+.oval.clicked {
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: #3C00FF;
+}
+.oval.secondary {
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: #3C00FF;
+    opacity: 60%;
+}
+
+.noted {
+    background-color: #2C6755;
+    color:#fff
+}
+
+.progress-bar {
+    background-color: #28a745;
+    transition: width 0.6s ease;
+}
+
+.progress {
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bordered-div {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:50px;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 24px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color:#3C00FF;
+    cursor:pointer;
 }
