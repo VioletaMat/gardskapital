@@ -95,8 +95,10 @@ const translationSV = {
         item2:"Frågor och svar",
         item3:"Kontakt"
       }
+    },
+    lan:{
+      allLoans:"Visa alla lån för att finansiera"
     }
-    // Add more translations as needed
   };
   
   export default translationSV;
