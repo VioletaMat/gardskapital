@@ -85,7 +85,7 @@ function Hem() {
             </div>
 
             {/* Loan Container */}
-            <div className="col-md-5">
+            <div className="col-md-5" onClick={goToAktuellaLan}>
               <div className="card shadow p-4">
                 <h5 className="fw-bold mb-3">{t('home.cardLoanTitle')}</h5>
                 <ul className="list-unstyled text-start">
